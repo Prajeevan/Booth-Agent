@@ -14,5 +14,5 @@ Hey.
 Thanks.
 * thanks
 
-< Apologies, but this app needs to go back to school!
+< Apologies, but this app needs to go back to schoolaaaaaaaa!
 * apology/untrained

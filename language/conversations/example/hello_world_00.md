@@ -14,5 +14,5 @@ Hello.
 Are you human?
 * turing/human
 
-< Apologies, but this app needs to go back to school!
+< Apologies, but thiasdasdasdasdsas app needs to go back to school!
 * apology/untrained

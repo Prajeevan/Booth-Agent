@@ -33,17 +33,53 @@ exports.handle = (client) => {
     }
   })
 
+const handleGreeting = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('Hello world, I mean human')
+      client.addResponse('greeting')
+      client.done()
+    }
+  })
+
+  const handleGoodbye = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      //client.addTextResponse('See you later!')
+      client.addResponse('goodbye')
+      client.done()
+    }
+  })
+
+  const handleBooth = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      //client.addTextResponse('See you later!')
+      client.addResponse('Photobooth/booths')
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
-      // map inbound message classifications to names of streams
-    },
-    autoResponses: {
-      // configure responses to be automatically sent as predicted by the machine learning model
+      greeting: 'greeting',
+      goodbye: 'goodbye',
     },
     streams: {
+      greeting: handleGreeting,
+      goodbye: handleGoodbye,
       main: 'onboarding',
       onboarding: [sayHello],
-      end: [untrained],
-    },
+      end: [untrained]
+    }
   })
 }

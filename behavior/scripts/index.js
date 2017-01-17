@@ -107,17 +107,23 @@ const collectCity = client.createStep({
   },
 })
 
+
 const provideWeather = client.createStep({
   satisfied() {
     return false
   },
 
   prompt() {
-    // Need to provide weather
-    client.done()
-  },
-})
+    let weatherData = {
+      temperature: 60,
+      condition: 'sunny',
+      city: client.getConversationState().weatherCity.value,
+    }
 
+    client.addResponse('askWeather/current', weatherData)
+    client.done()
+  }
+})
 
 client.runFlow({
   classifications: {},

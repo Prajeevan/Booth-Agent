@@ -68,7 +68,7 @@ const handleGreeting = client.createStep({
       client.done()
     }
   })
-
+/*
   client.runFlow({
     classifications: {
       greeting: 'greeting',
@@ -82,4 +82,49 @@ const handleGreeting = client.createStep({
       end: [untrained]
     }
   })
+*/
+
+const collectCity = client.createStep({
+  satisfied() {
+    return Boolean(client.getConversationState().weatherCity)
+  },
+
+  prompt() {
+    // Need to prompt user for city    
+    console.log('Need to ask user for city')
+    client.done()
+  },
+})
+
+const provideWeather = client.createStep({
+  satisfied() {
+    return false
+  },
+
+  prompt() {
+    // Need to provide weather
+    client.done()
+  },
+})
+
+
+client.runFlow({
+  classifications: {},
+  streams: {
+    main: 'getWeather',
+    hi: [sayHello],
+    getWeather: [collectCity, provideWeather],
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
 }

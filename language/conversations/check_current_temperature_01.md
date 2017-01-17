@@ -7,4 +7,4 @@ What is the temperature in [Scarborough Ontario](City)
 * askWeather/temperature
 
 < It is currently [5](temperature) degrees in [Scarborough Ontario](City)
-* askWeather/current
+* provideWeather/weather

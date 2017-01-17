@@ -7,4 +7,4 @@ please let me know how warm it is in [Los Angeles](city) right now
 * askWeather/temperature
 
 < In [Los Angeles](city) it is currently [85](temperature) degrees
-* askWeather/current
+* provideWeather/weather
